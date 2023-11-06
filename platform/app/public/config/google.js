@@ -41,11 +41,11 @@ window.config = {
         friendlyName: 'dcmjs DICOMWeb Server',
         name: 'GCP',
         wadoUriRoot:
-          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-dicom-store/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
         qidoRoot:
-          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-dicom-store/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
         wadoRoot:
-          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-dicom-store/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
         qidoSupportsIncludeField: true,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
