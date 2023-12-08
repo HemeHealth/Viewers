@@ -17,7 +17,7 @@ window.config = {
   dataSources: [
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'staging',
+      sourceName: 'staging-dicom-store',
       configuration: {
         friendlyName: 'dcmjs DICOMWeb Server',
         name: 'GCP',
@@ -40,7 +40,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'lab1',
+      sourceName: 'staging-lab-1',
       configuration: {
         friendlyName: 'Staging Lab 1',
         name: 'GCP',
@@ -63,7 +63,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'lab2',
+      sourceName: 'staging-lab-2',
       configuration: {
         friendlyName: 'Staging Lab 2',
         name: 'GCP',
