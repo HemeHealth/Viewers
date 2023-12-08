@@ -13,20 +13,20 @@ window.config = {
   modes: [],
   showStudyList: true,
   // filterQueryParam: false,
-  defaultDataSourceName: 'staging',
+  defaultDataSourceName: 'prod-dicom-store',
   dataSources: [
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'staging-dicom-store',
+      sourceName: 'prod-dicom-store',
       configuration: {
         friendlyName: 'dcmjs DICOMWeb Server',
         name: 'GCP',
         wadoUriRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-dicom-store/dicomWeb',
         qidoRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-dicom-store/dicomWeb',
         wadoRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-dicom-store/dicomWeb',
         qidoSupportsIncludeField: true,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
@@ -40,16 +40,16 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'staging-lab-1',
+      sourceName: 'prod-lab-1',
       configuration: {
-        friendlyName: 'Staging Lab 1',
+        friendlyName: 'Prod Lab 1',
         name: 'GCP',
         wadoUriRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-lab-1/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-1/dicomWeb',
         qidoRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-lab-1/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-1/dicomWeb',
         wadoRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-lab-1/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-1/dicomWeb',
         qidoSupportsIncludeField: true,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
@@ -63,16 +63,39 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'staging-lab-2',
+      sourceName: 'prod-lab-2',
       configuration: {
-        friendlyName: 'Staging Lab 2',
+        friendlyName: 'Prod Lab 2',
         name: 'GCP',
         wadoUriRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-lab-2/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-2/dicomWeb',
         qidoRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-lab-2/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-2/dicomWeb',
         wadoRoot:
-          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/asia-south1/datasets/staging-fhir-dataset/dicomStores/staging-lab-2/dicomWeb',
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-2/dicomWeb',
+        qidoSupportsIncludeField: true,
+        imageRendering: 'wadors',
+        thumbnailRendering: 'wadors',
+        enableStudyLazyLoad: true,
+        supportsFuzzyMatching: true,
+        supportsWildcard: false,
+        dicomUploadEnabled: true,
+        omitQuotationForMultipartRequest: true,
+        configurationAPI: 'ohif.dataSourceConfigurationAPI.google',
+      },
+    },
+    {
+      namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
+      sourceName: 'prod-lab-2',
+      configuration: {
+        friendlyName: 'Prod Lab 2',
+        name: 'GCP',
+        wadoUriRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-3/dicomWeb',
+        qidoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-3/dicomWeb',
+        wadoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/asia-south1/datasets/fhir_prod_dataset/dicomStores/prod-lab-3/dicomWeb',
         qidoSupportsIncludeField: true,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
