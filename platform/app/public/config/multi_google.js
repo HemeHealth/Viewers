@@ -85,6 +85,29 @@ window.config = {
       },
     },
     {
+      namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
+      sourceName: 'staging-dicom-store',
+      configuration: {
+        friendlyName: 'Staging EU Store',
+        name: 'GCP',
+        wadoUriRoot:
+          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/europe-west2/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
+        qidoRoot:
+          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/europe-west2/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
+        wadoRoot:
+          'https://healthcare.googleapis.com/v1/projects/dev-heme-platform/locations/europe-west2/datasets/staging-fhir-dataset/dicomStores/staging-dicom-store/dicomWeb',
+        qidoSupportsIncludeField: true,
+        imageRendering: 'wadors',
+        thumbnailRendering: 'wadors',
+        enableStudyLazyLoad: true,
+        supportsFuzzyMatching: true,
+        supportsWildcard: false,
+        dicomUploadEnabled: true,
+        omitQuotationForMultipartRequest: true,
+        configurationAPI: 'ohif.dataSourceConfigurationAPI.google',
+      },
+    },
+    {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomwebproxy',
       sourceName: 'dicomwebproxy',
       configuration: {
