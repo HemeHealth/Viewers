@@ -86,7 +86,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'staging-dicom-store',
+      sourceName: 'staging-dicom-store-uk',
       configuration: {
         friendlyName: 'Staging EU Store',
         name: 'GCP',
