@@ -1,13 +1,8 @@
-import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import classNames from 'classnames';
 
 import NavBar from '../NavBar';
-import Svg from '../Svg';
-import Icon from '../Icon';
-import IconButton from '../IconButton';
-import Dropdown from '../Dropdown';
 
 function Header({
   children,
@@ -33,16 +28,17 @@ function Header({
       className="justify-between border-b-4 border-black"
       isSticky={isSticky}
     >
-      <div className="flex flex-1 justify-between">
+      <div className="flex flex-1 justify-start">
         <div className="flex items-center">
           {/* // TODO: Should preserve filter/sort
               // Either injected service? Or context (like react router's `useLocation`?) */}
-          <div
+          {/* <div
             className={classNames(
               'mr-3 inline-flex items-center',
               isReturnEnabled && 'cursor-pointer'
             )}
             onClick={onClickReturn}
+            data-cy="return-to-work-list"
           >
             {isReturnEnabled && (
               <Icon
@@ -53,15 +49,16 @@ function Header({
             <div className="ml-4">
               {WhiteLabeling?.createLogoComponentFn?.(React, props) || <Svg name="logo-ohif" />}
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="flex items-center">{children}</div>
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <span className="text-common-light mr-3 text-lg">{t('INVESTIGATIONAL USE ONLY')}</span>
           <Dropdown
             id="options"
             showDropdownIcon={false}
             list={menuOptions}
+            alignment="right"
           >
             <IconButton
               id={'options-settings-icon'}
@@ -82,7 +79,7 @@ function Header({
               <Icon name="chevron-down" />
             </IconButton>
           </Dropdown>
-        </div>
+        </div> */}
       </div>
     </NavBar>
   );
