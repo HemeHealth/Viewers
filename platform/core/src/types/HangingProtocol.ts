@@ -241,15 +241,17 @@ export type ProtocolStage = {
 export type ProtocolNotifications = {
   // This set of commands is executed after the protocol is exited and the new one applied
   onProtocolExit?: Command[];
-
   // This set of commands is executed after the protocol is entered and applied
   onProtocolEnter?: Command[];
-
   // This set of commands is executed before the layout change is started.
   // If it returns false, the layout change will be aborted.
   // The numRows and numCols is included in the command params, so it is possible
   // to apply a specific hanging protocol
   onLayoutChange?: Command[];
+  // This set of commands is executed after the initial viewport grid data is set
+  // and all viewport data includes a designated display set. This command
+  // will run on every stage's initial layout.
+  onViewportDataInitialized?: Command[];
 };
 
 /**
@@ -257,7 +259,7 @@ export type ProtocolNotifications = {
  * It is a set of rules about when the protocol can be applied at all,
  * as well as a set of stages that represent indivividual views.
  * Additionally, the display set selectors are used to choose from the existing
- * display sets.  The hanging protcol definition here does NOT allow
+ * display sets.  The hanging protocol definition here does NOT allow
  * redefining the display sets to use, but only selects the views to show.
  */
 export type Protocol = {
@@ -291,6 +293,17 @@ export type Protocol = {
    */
   numberOfPriorsReferenced?: number;
   syncDataForViewports?: boolean;
+  /**
+   * Set of minimal conditions necessary to run the hanging protocol.
+   */
+  hpInitiationCriteria?: {
+    /* If configured, sets the minimum number of series needed to run the hanging
+     * protocol and start displaying images. Used when OHIF needs to handle studies
+     * with several series and it is required that the first image should be loaded
+     * faster.
+     */
+    minSeriesLoaded: number;
+  };
 };
 
 /** Used to dynamically generate protocols.

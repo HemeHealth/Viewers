@@ -1,4 +1,5 @@
 import SUPPORTED_TOOLS from './constants/supportedTools';
+import { getDisplayUnit } from './utils';
 import getSOPInstanceAttributes from './utils/getSOPInstanceAttributes';
 import { utils } from '@ohif/core';
 
@@ -49,7 +50,7 @@ const Angle = {
       displaySet = displaySetService.getDisplaySetsForSeries(SeriesInstanceUID);
     }
 
-    const { points } = data.handles;
+    const { points, textBox } = data.handles;
 
     const mappedAnnotations = getMappedAnnotations(annotation, displaySetService);
 
@@ -61,6 +62,7 @@ const Angle = {
       SOPInstanceUID,
       FrameOfReferenceUID,
       points,
+      textBox,
       metadata,
       referenceSeriesUID: SeriesInstanceUID,
       referenceStudyUID: StudyInstanceUID,
@@ -181,7 +183,9 @@ function getDisplayText(mappedAnnotations, displaySet) {
     return displayText;
   }
   const roundedAngle = utils.roundNumber(angle, 2);
-  displayText.push(`${roundedAngle} ${unit} (S: ${SeriesNumber}${instanceText}${frameText})`);
+  displayText.push(
+    `${roundedAngle} ${getDisplayUnit(unit)} (S: ${SeriesNumber}${instanceText}${frameText})`
+  );
 
   return displayText;
 }

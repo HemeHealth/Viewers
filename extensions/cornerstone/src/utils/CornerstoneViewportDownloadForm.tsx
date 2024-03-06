@@ -93,6 +93,7 @@ const CornerstoneViewportDownloadForm = ({
       renderingEngine.resize();
 
       // Trigger the render on the viewport to update the on screen
+      downloadViewport.resetCamera();
       downloadViewport.render();
 
       downloadViewportElement.addEventListener(
@@ -142,12 +143,16 @@ const CornerstoneViewportDownloadForm = ({
           const properties = viewport.getProperties();
 
           downloadViewport.setStack([imageId]).then(() => {
-            downloadViewport.setProperties(properties);
+            try {
+              downloadViewport.setProperties(properties);
+              const newWidth = Math.min(width || image.width, MAX_TEXTURE_SIZE);
+              const newHeight = Math.min(height || image.height, MAX_TEXTURE_SIZE);
 
-            const newWidth = Math.min(width || image.width, MAX_TEXTURE_SIZE);
-            const newHeight = Math.min(height || image.height, MAX_TEXTURE_SIZE);
-
-            resolve({ width: newWidth, height: newHeight });
+              resolve({ width: newWidth, height: newHeight });
+            } catch (e) {
+              // Happens on clicking the cancel button
+              console.warn('Unable to set properties', e);
+            }
           });
         } else if (downloadViewport instanceof VolumeViewport) {
           const actors = viewport.getActors();
@@ -219,7 +224,6 @@ const CornerstoneViewportDownloadForm = ({
       minimumSize={MINIMUM_SIZE}
       maximumSize={MAX_TEXTURE_SIZE}
       defaultSize={DEFAULT_SIZE}
-      canvasClass={'cornerstone-canvas'}
       activeViewportElement={activeViewportElement}
       enableViewport={enableViewport}
       disableViewport={disableViewport}
