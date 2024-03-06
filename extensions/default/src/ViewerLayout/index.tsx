@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { CommandsManager, HangingProtocolService, ServicesManager } from '@ohif/core';
 import { ErrorBoundary, LoadingIndicatorProgress } from '@ohif/ui';
 import { useAppConfig } from '@state';
+import ViewerHeader from './ViewerHeader';
 
 function ViewerLayout({
   // From Extension Module Params
@@ -104,11 +105,11 @@ function ViewerLayout({
 
   return (
     <div>
-      {/* <ViewerHeader
+      <ViewerHeader
         hotkeysManager={hotkeysManager}
         extensionManager={extensionManager}
         servicesManager={servicesManager}
-      /> */}
+      />
       <div
         className="relative flex w-full flex-row flex-nowrap items-stretch overflow-hidden bg-black"
         style={{ height: 'calc(100vh - 52px' }}
