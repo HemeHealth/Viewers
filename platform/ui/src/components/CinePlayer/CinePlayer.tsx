@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 
 import Icon from '../Icon';
-import Tooltip from '../Tooltip';
 import InputRange from '../InputRange';
+import Tooltip from '../Tooltip';
 
-import './CinePlayer.css';
 import classNames from 'classnames';
+import './CinePlayer.css';
 
 export type CinePlayerProps = {
   className: string;
@@ -54,6 +54,7 @@ const CinePlayer: React.FC<CinePlayerProps> = ({
 
   return (
     <div
+      style={{ top: 50, height: 50 }}
       className={classNames(
         className,
         'border-secondary-light/60 bg-primary-dark flex select-none items-center gap-2 rounded border px-2 py-2'
