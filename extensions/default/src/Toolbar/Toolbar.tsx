@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
+import React, { useEffect, useState } from 'react';
 
 export default function Toolbar({ servicesManager }) {
   const { toolbarService } = servicesManager.services;
@@ -27,6 +27,8 @@ export default function Toolbar({ servicesManager }) {
     };
   }, [toolbarService]);
 
+  const TOOLBAR_TO_HIDE = ['Pan', 'Capture', 'MPR', 'Layout', 'Zoom'];
+
   return (
     <>
       {toolbarButtons.map(toolDef => {
@@ -46,23 +48,25 @@ export default function Toolbar({ servicesManager }) {
 
         // These can... Trigger toolbar events based on updates?
         // Then sync using useEffect, or simply modify the state here?
-        return (
-          // The margin for separating the tools on the toolbar should go here and NOT in each individual component (button) item.
-          // This allows for the individual items to be included in other UI components where perhaps alternative margins are desired.
-          <div
-            key={id}
-            className={classnames('mr-1')}
-          >
-            <Component
-              id={id}
-              {...componentProps}
-              bState={buttonState}
-              isActive={isActive}
-              onInteraction={args => toolbarService.recordInteraction(args)}
-              servicesManager={servicesManager}
-            />
-          </div>
-        );
+        if (!TOOLBAR_TO_HIDE.includes(id)) {
+          return (
+            // The margin for separating the tools on the toolbar should go here and NOT in each individual component (button) item.
+            // This allows for the individual items to be included in other UI components where perhaps alternative margins are desired.
+            <div
+              key={id}
+              className={classnames('mr-1')}
+            >
+              <Component
+                id={id}
+                {...componentProps}
+                bState={buttonState}
+                isActive={isActive}
+                onInteraction={args => toolbarService.recordInteraction(args)}
+                servicesManager={servicesManager}
+              />
+            </div>
+          );
+        }
       })}
     </>
   );
