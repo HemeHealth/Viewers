@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import { CommandsManager, HangingProtocolService, ServicesManager } from '@ohif/core';
-import { ErrorBoundary, LoadingIndicatorProgress } from '@ohif/ui';
+import { ErrorBoundary, LoadingIndicatorProgress, SidePanel } from '@ohif/ui';
 import { useAppConfig } from '@state';
 import ViewerHeader from './ViewerHeader';
 
@@ -117,16 +117,16 @@ function ViewerLayout({
         <React.Fragment>
           {showLoadingIndicator && <LoadingIndicatorProgress className="h-full w-full bg-black" />}
           {/* LEFT SIDEPANELS */}
-          {/* {leftPanelComponents.length ? (
+          {leftPanelComponents.length ? (
             <ErrorBoundary context="Left Panel">
               <SidePanel
                 side="left"
-                activeTabIndex={leftPanelDefaultClosed ? null : 0}
+                activeTabIndex={rightPanelDefaultClosed ? null : 0}
                 tabs={leftPanelComponents}
                 servicesManager={servicesManager}
               />
             </ErrorBoundary>
-          ) : null} */}
+          ) : null}
           {/* TOOLBAR + GRID */}
           <div className="flex h-full flex-1 flex-col">
             <div className="relative flex h-full flex-1 items-center justify-center overflow-hidden bg-black">
@@ -139,7 +139,7 @@ function ViewerLayout({
               </ErrorBoundary>
             </div>
           </div>
-          {/* {rightPanelComponents.length ? (
+          {rightPanelComponents.length ? (
             <ErrorBoundary context="Right Panel">
               <SidePanel
                 side="right"
@@ -148,7 +148,7 @@ function ViewerLayout({
                 servicesManager={servicesManager}
               />
             </ErrorBoundary>
-          ) : null} */}
+          ) : null}
         </React.Fragment>
       </div>
     </div>
