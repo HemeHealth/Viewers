@@ -7,9 +7,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { PanelService, ServicesManager, Types } from '@ohif/core';
 
-import LegacyButton from '../LegacyButton';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
+import LegacyButton from '../LegacyButton';
 import Tooltip from '../Tooltip';
 
 import 'swiper/css';
@@ -143,6 +143,7 @@ const SidePanel = ({
   }, [tabs, hasBeenOpened, panelService, updateActiveTabIndex]);
 
   const getCloseStateComponent = () => {
+    console.log('close statement');
     const _childComponents = Array.isArray(tabs) ? tabs : [tabs];
     return (
       <>
@@ -198,87 +199,103 @@ const SidePanel = ({
     );
   };
 
+  const extraStyles: any =
+    side === 'left'
+      ? {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          zIndex: 1,
+          height: '100%',
+        }
+      : {
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          zIndex: 1,
+          height: '100%',
+        };
+
   return (
     <div
       className={classnames(className, baseClasses, classesMap[openStatus][side])}
-      style={style}
+      style={{ ...style, ...extraStyles }}
     >
-      {panelOpen ? (
-        <React.Fragment>
-          {/** Panel Header with Arrow and Close Actions */}
-          <div
-            className={classnames(
-              'flex-static bg-primary-dark flex h-9 cursor-pointer px-[10px]',
-              tabs.length === 1 && 'mb-1'
-            )}
-            onClick={() => {
-              updatePanelOpen(prev => !prev);
-              // slideToActivePanel();
-            }}
-            data-cy={`side-panel-header-${side}`}
-          >
-            {/* TODO This should be redesigned to not be a button. */}
-            <LegacyButton
-              variant="text"
-              color="inherit"
-              border="none"
-              rounded="none"
-              className="flex-static relative flex w-full flex-row items-center px-3"
-              name={tabs.length === 1 ? `${tabs[activeTabIndex].name}` : ''}
+      {
+        panelOpen ? (
+          <React.Fragment>
+            <div
+              className={classnames(
+                'flex-static bg-primary-dark flex h-9 cursor-pointer px-[10px]',
+                tabs.length === 1 && 'mb-1'
+              )}
+              onClick={() => {
+                updatePanelOpen(prev => !prev);
+                // slideToActivePanel();
+              }}
+              data-cy={`side-panel-header-${side}`}
             >
-              <Icon
-                name={openStateIconName[side]}
-                className={classnames(
-                  'text-primary-active absolute',
-                  side === 'left' && 'order-last'
-                )}
-                style={{ ...position[side] }}
-              />
-              {/* Todo: ass secondary label here */}
-              <span className="text-primary-active">
-                {tabs.length === 1 && (t(tabs[activeTabIndex].label) as string)}
-              </span>
-            </LegacyButton>
-          </div>
-          {tabs.length > 1 &&
-            _getMoreThanOneTabLayout(
-              swiperRef,
-              setSwiper,
-              prevRef,
-              nextRef,
-              tabs,
-              activeTabIndex,
-              updateActiveTabIndex
-            )}
-          {/** carousel navigation with the arrows */}
-          {/** only show carousel nav if tabs are more than 3 tabs */}
-          {tabs.length > 3 && (
-            <div className="text-primary-active bg-primary-dark flex w-full justify-end gap-2 py-1 px-2">
-              <button
-                ref={prevRef}
-                className="swiper-button-prev-custom"
+              <LegacyButton
+                variant="text"
+                color="inherit"
+                border="none"
+                rounded="none"
+                className="flex-static relative flex w-full flex-row items-center px-3"
+                name={tabs.length === 1 ? `${tabs[activeTabIndex].name}` : ''}
               >
                 <Icon
-                  name={'icon-prev'}
-                  className={classnames('text-primary-active')}
+                  name={openStateIconName[side]}
+                  className={classnames(
+                    'text-primary-active absolute',
+                    side === 'left' && 'order-last'
+                  )}
+                  style={{ ...position[side] }}
                 />
-              </button>
-              <button
-                ref={nextRef}
-                className="swiper-button-next-custom"
-              >
-                <Icon
-                  name={'icon-next'}
-                  className={classnames('text-primary-active')}
-                />
-              </button>
+                <span className="text-primary-active">
+                  {tabs.length === 1 && (t(tabs[activeTabIndex].label) as string)}
+                </span>
+              </LegacyButton>
             </div>
-          )}
-          <ActiveComponent />
-        </React.Fragment>
-      ) : (
-        <React.Fragment>{getCloseStateComponent()}</React.Fragment>
-      )}
+            {tabs.length > 1 &&
+              _getMoreThanOneTabLayout(
+                swiperRef,
+                setSwiper,
+                prevRef,
+                nextRef,
+                tabs,
+                activeTabIndex,
+                updateActiveTabIndex
+              )}
+
+            {tabs.length > 3 && (
+              <div className="text-primary-active bg-primary-dark flex w-full justify-end gap-2 py-1 px-2">
+                <button
+                  ref={prevRef}
+                  className="swiper-button-prev-custom"
+                >
+                  <Icon
+                    name={'icon-prev'}
+                    className={classnames('text-primary-active')}
+                  />
+                </button>
+                <button
+                  ref={nextRef}
+                  className="swiper-button-next-custom"
+                >
+                  <Icon
+                    name={'icon-next'}
+                    className={classnames('text-primary-active')}
+                  />
+                </button>
+              </div>
+            )}
+            <ActiveComponent />
+          </React.Fragment>
+        ) : (
+          <React.Fragment>{getCloseStateComponent()}</React.Fragment>
+        )
+        //
+      }
     </div>
   );
 };
