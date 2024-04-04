@@ -362,7 +362,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'mittal-imaging',
+      sourceName: 'tesla-imaging',
       configuration: {
         friendlyName: 'Tesla hi tech imaging center',
         name: 'GCP',
