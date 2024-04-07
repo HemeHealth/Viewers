@@ -1,9 +1,11 @@
 import React from 'react';
 // Svgs
 import logoOhif from './../../assets/svgs/logo-ohif.svg';
+import hemeLogo from './../../assets/svgs/heme-logo.svg';
 
 const SVGS = {
   'logo-ohif': logoOhif,
+  'heme-logo': hemeLogo,
 };
 
 /**
