@@ -290,6 +290,22 @@ const toolbarButtons: Button[] = [
     },
   },
   {
+    id: 'Cine',
+    type: 'ohif.action',
+    props: {
+      icon: 'tool-cine',
+      label: 'Cine',
+      type: 'action',
+      commands: [
+        {
+          commandName: 'toggleCine',
+          commandOptions: {},
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
     id: 'Layout',
     type: 'ohif.layoutSelector',
     props: {
