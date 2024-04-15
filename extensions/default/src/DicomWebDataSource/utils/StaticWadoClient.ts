@@ -7,6 +7,7 @@ import { api } from 'dicomweb-client';
  * performing searches doesn't work.  This version fixes the query issue
  * by manually implementing a query option.
  */
+
 export default class StaticWadoClient extends api.DICOMwebClient {
   static studyFilterKeys = {
     studyinstanceuid: '0020000D',
@@ -160,7 +161,7 @@ export default class StaticWadoClient extends api.DICOMwebClient {
     if (!valueElem) {
       return false;
     }
-    if (valueElem.vr == 'DA') {
+    if (valueElem.vr === 'DA' && valueElem.Value?.[0]) {
       return this.compareDateRange(testValue, valueElem.Value[0]);
     }
     const value = valueElem.Value;

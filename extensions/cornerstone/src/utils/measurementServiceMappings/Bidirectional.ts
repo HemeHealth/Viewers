@@ -3,6 +3,7 @@ import { annotation } from '@cornerstonejs/tools';
 import SUPPORTED_TOOLS from './constants/supportedTools';
 import getSOPInstanceAttributes from './utils/getSOPInstanceAttributes';
 import { utils } from '@ohif/core';
+import { getDisplayUnit } from './utils';
 
 const Bidirectional = {
   toAnnotation: measurement => {},
@@ -44,7 +45,7 @@ const Bidirectional = {
       displaySet = displaySetService.getDisplaySetsForSeries(SeriesInstanceUID);
     }
 
-    const { points } = data.handles;
+    const { points, textBox } = data.handles;
 
     const mappedAnnotations = getMappedAnnotations(annotation, displaySetService);
 
@@ -56,6 +57,7 @@ const Bidirectional = {
       SOPInstanceUID,
       FrameOfReferenceUID,
       points,
+      textBox,
       metadata,
       referenceSeriesUID: SeriesInstanceUID,
       referenceStudyUID: StudyInstanceUID,
@@ -99,8 +101,7 @@ function getMappedAnnotations(annotation, displaySetService) {
     );
 
     const { SeriesNumber } = displaySet;
-    const { length, width } = targetStats;
-    const unit = 'mm';
+    const { length, width, unit } = targetStats;
 
     annotations.push({
       SeriesInstanceUID,
@@ -130,9 +131,9 @@ function _getReport(mappedAnnotations, points, FrameOfReferenceUID) {
   values.push('Cornerstone:Bidirectional');
 
   mappedAnnotations.forEach(annotation => {
-    const { length, width } = annotation;
-    columns.push(`Length (mm)`, `Width (mm)`);
-    values.push(length, width);
+    const { length, width, unit } = annotation;
+    columns.push(`Length`, `Width`, 'Unit');
+    values.push(length, width, unit);
   });
 
   if (FrameOfReferenceUID) {
@@ -162,7 +163,7 @@ function getDisplayText(mappedAnnotations, displaySet) {
   const displayText = [];
 
   // Area is the same for all series
-  const { length, width, SeriesNumber, SOPInstanceUID, frameNumber } = mappedAnnotations[0];
+  const { length, width, unit, SeriesNumber, SOPInstanceUID, frameNumber } = mappedAnnotations[0];
   const roundedLength = utils.roundNumber(length, 2);
   const roundedWidth = utils.roundNumber(width, 2);
 
@@ -176,8 +177,10 @@ function getDisplayText(mappedAnnotations, displaySet) {
   const instanceText = InstanceNumber ? ` I: ${InstanceNumber}` : '';
   const frameText = displaySet.isMultiFrame ? ` F: ${frameNumber}` : '';
 
-  displayText.push(`L: ${roundedLength} mm (S: ${SeriesNumber}${instanceText}${frameText})`);
-  displayText.push(`W: ${roundedWidth} mm`);
+  displayText.push(
+    `L: ${roundedLength} ${getDisplayUnit(unit)} (S: ${SeriesNumber}${instanceText}${frameText})`
+  );
+  displayText.push(`W: ${roundedWidth} ${getDisplayUnit(unit)}`);
 
   return displayText;
 }

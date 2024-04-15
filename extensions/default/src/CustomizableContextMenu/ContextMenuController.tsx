@@ -1,6 +1,7 @@
 import * as ContextMenuItemsBuilder from './ContextMenuItemsBuilder';
 import ContextMenu from '../../../../platform/ui/src/components/ContextMenu/ContextMenu';
 import { CommandsManager, ServicesManager, Types } from '@ohif/core';
+import { annotation as CsAnnotation } from '@cornerstonejs/tools';
 import { Menu, MenuItem, Point, ContextMenuProps } from './types';
 
 /**
@@ -47,6 +48,18 @@ export default class ContextMenuController {
 
     const { event, subMenu, menuId, menus, selectorProps } = contextMenuProps;
 
+    const annotationManager = CsAnnotation.state.getAnnotationManager();
+    const { locking } = CsAnnotation;
+    const targetAnnotationId = selectorProps?.nearbyToolData?.annotationUID as string;
+    const isLocked = locking.isAnnotationLocked(
+      annotationManager.getAnnotation(targetAnnotationId)
+    );
+
+    if (isLocked) {
+      console.warn('Annotation is locked.');
+      return;
+    }
+
     console.log('Getting items from', menus);
     const items = ContextMenuItemsBuilder.getMenuItems(
       selectorProps || contextMenuProps,
@@ -69,8 +82,8 @@ export default class ContextMenuController {
       event,
       content: ContextMenu,
 
-      // This naming is part of hte uiDialogService convention
-      // Clicking outside simpy closes the dialog box.
+      // This naming is part of the uiDialogService convention
+      // Clicking outside simply closes the dialog box.
       onClickOutside: () => this.services.uiDialogService.dismiss({ id: 'context-menu' }),
 
       contentProps: {
