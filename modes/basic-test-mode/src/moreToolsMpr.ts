@@ -25,18 +25,18 @@ const moreToolsMpr = [
         tooltip: 'More Tools',
       },
       items: [
-        ToolbarService._createToggleButton(
-          'cine',
-          'tool-cine',
-          'Cine',
-          [
-            {
-              commandName: 'toggleCine',
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Cine'
-        ),
+        // ToolbarService._createToggleButton(
+        //   'cine',
+        //   'tool-cine',
+        //   'Cine',
+        //   [
+        //     {
+        //       commandName: 'toggleCine',
+        //       context: 'CORNERSTONE',
+        //     },
+        //   ],
+        //   'Cine'
+        // ),
         ToolbarService._createActionButton(
           'Reset',
           'tool-reset',
