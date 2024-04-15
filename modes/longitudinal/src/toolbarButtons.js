@@ -312,6 +312,22 @@ const toolbarButtons = [
     },
   },
   {
+    id: 'Cine',
+    type: 'ohif.action',
+    props: {
+      icon: 'tool-cine',
+      label: 'Cine',
+      type: 'action',
+      commands: [
+        {
+          commandName: 'toggleCine',
+          commandOptions: {},
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
+  {
     id: 'Layout',
     type: 'ohif.layoutSelector',
     props: {
@@ -383,18 +399,18 @@ const toolbarButtons = [
         tooltip: 'More Tools',
       },
       items: [
-        _createToggleButton(
-          'cine',
-          'tool-cine',
-          'Cine',
-          [
-            {
-              commandName: 'toggleCine',
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Cine'
-        ),
+        // _createToggleButton(
+        //   'cine',
+        //   'tool-cine',
+        //   'Cine',
+        //   [
+        //     {
+        //       commandName: 'toggleCine',
+        //       context: 'CORNERSTONE',
+        //     },
+        //   ],
+        //   'Cine'
+        // ),
         _createActionButton(
           'Reset',
           'tool-reset',
