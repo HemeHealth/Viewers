@@ -383,6 +383,18 @@ const toolbarButtons = [
         tooltip: 'More Tools',
       },
       items: [
+        _createToggleButton(
+          'cine',
+          'tool-cine',
+          'Cine',
+          [
+            {
+              commandName: 'toggleCine',
+              context: 'CORNERSTONE',
+            },
+          ],
+          'Cine'
+        ),
         _createActionButton(
           'Reset',
           'tool-reset',
@@ -510,18 +522,6 @@ const toolbarButtons = [
             },
           ],
           'Probe'
-        ),
-        _createToggleButton(
-          'cine',
-          'tool-cine',
-          'Cine',
-          [
-            {
-              commandName: 'toggleCine',
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Cine'
         ),
         _createToolButton(
           'Angle',
