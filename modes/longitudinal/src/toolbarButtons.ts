@@ -224,6 +224,22 @@ const toolbarButtons: Button[] = [
       commands: _createSetToolActiveCommands('Zoom'),
     },
   },
+  {
+    id: 'Cine',
+    type: 'ohif.action',
+    props: {
+      icon: 'tool-cine',
+      label: 'Cine',
+      type: 'action',
+      commands: [
+        {
+          commandName: 'toggleCine',
+          commandOptions: {},
+          context: 'CORNERSTONE',
+        },
+      ],
+    },
+  },
   // Window Level + Presets...
   {
     id: 'WindowLevel',
@@ -289,6 +305,7 @@ const toolbarButtons: Button[] = [
       ],
     },
   },
+
   {
     id: 'Layout',
     type: 'ohif.layoutSelector',
