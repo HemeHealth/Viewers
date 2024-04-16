@@ -27,7 +27,7 @@ export default function Toolbar({ servicesManager }) {
     };
   }, [toolbarService]);
 
-  const TOOLBAR_TO_HIDE = ['Pan', 'Capture', 'MPR', 'Layout'];
+  const TOOLBAR_TO_HIDE = ['Pan', 'Capture', 'Layout'];
 
   return (
     <>
