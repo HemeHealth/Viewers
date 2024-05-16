@@ -844,6 +844,121 @@ window.config = {
       },
     },
     {
+      namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
+      sourceName: 'prod-store-eflhc',
+      configuration: {
+        friendlyName: 'prod-store-eflhc',
+        name: 'GCP',
+        wadoUriRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-eflhc/dicomWeb',
+        qidoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-eflhc/dicomWeb',
+        wadoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-eflhc/dicomWeb',
+        qidoSupportsIncludeField: true,
+        imageRendering: 'wadors',
+        thumbnailRendering: 'wadors',
+        enableStudyLazyLoad: true,
+        supportsFuzzyMatching: true,
+        supportsWildcard: false,
+        dicomUploadEnabled: true,
+        omitQuotationForMultipartRequest: true,
+        configurationAPI: 'ohif.dataSourceConfigurationAPI.google',
+      },
+    },
+    {
+      namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
+      sourceName: 'prod-store-egc9b',
+      configuration: {
+        friendlyName: 'prod-store-egc9b',
+        name: 'GCP',
+        wadoUriRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-egc9b/dicomWeb',
+        qidoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-egc9b/dicomWeb',
+        wadoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-egc9b/dicomWeb',
+        qidoSupportsIncludeField: true,
+        imageRendering: 'wadors',
+        thumbnailRendering: 'wadors',
+        enableStudyLazyLoad: true,
+        supportsFuzzyMatching: true,
+        supportsWildcard: false,
+        dicomUploadEnabled: true,
+        omitQuotationForMultipartRequest: true,
+        configurationAPI: 'ohif.dataSourceConfigurationAPI.google',
+      },
+    },
+    {
+      namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
+      sourceName: 'prod-store-esvgm',
+      configuration: {
+        friendlyName: 'prod-store-esvgm',
+        name: 'GCP',
+        wadoUriRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-esvgm/dicomWeb',
+        qidoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-esvgm/dicomWeb',
+        wadoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-esvgm/dicomWeb',
+        qidoSupportsIncludeField: true,
+        imageRendering: 'wadors',
+        thumbnailRendering: 'wadors',
+        enableStudyLazyLoad: true,
+        supportsFuzzyMatching: true,
+        supportsWildcard: false,
+        dicomUploadEnabled: true,
+        omitQuotationForMultipartRequest: true,
+        configurationAPI: 'ohif.dataSourceConfigurationAPI.google',
+      },
+    },
+    {
+      namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
+      sourceName: 'prod-store-gkmqw',
+      configuration: {
+        friendlyName: 'prod-store-gkmqw',
+        name: 'GCP',
+        wadoUriRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-gkmqw/dicomWeb',
+        qidoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-gkmqw/dicomWeb',
+        wadoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-gkmqw/dicomWeb',
+        qidoSupportsIncludeField: true,
+        imageRendering: 'wadors',
+        thumbnailRendering: 'wadors',
+        enableStudyLazyLoad: true,
+        supportsFuzzyMatching: true,
+        supportsWildcard: false,
+        dicomUploadEnabled: true,
+        omitQuotationForMultipartRequest: true,
+        configurationAPI: 'ohif.dataSourceConfigurationAPI.google',
+      },
+    },
+    {
+      namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
+      sourceName: 'prod-store-hbptx',
+      configuration: {
+        friendlyName: 'prod-store-hbptx',
+        name: 'GCP',
+        wadoUriRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-hbptx/dicomWeb',
+        qidoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-hbptx/dicomWeb',
+        wadoRoot:
+          'https://healthcare.googleapis.com/v1/projects/prod-heme-platform/locations/europe-west2/datasets/fhir_prod_dataset/dicomStores/prod-store-hbptx/dicomWeb',
+        qidoSupportsIncludeField: true,
+        imageRendering: 'wadors',
+        thumbnailRendering: 'wadors',
+        enableStudyLazyLoad: true,
+        supportsFuzzyMatching: true,
+        supportsWildcard: false,
+        dicomUploadEnabled: true,
+        omitQuotationForMultipartRequest: true,
+        configurationAPI: 'ohif.dataSourceConfigurationAPI.google',
+      },
+    },
+    {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomwebproxy',
       sourceName: 'dicomwebproxy',
       configuration: {
