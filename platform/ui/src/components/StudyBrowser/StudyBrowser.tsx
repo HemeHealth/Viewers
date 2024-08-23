@@ -41,7 +41,7 @@ const StudyBrowser = ({
         const isExpanded = expandedStudyInstanceUIDs.includes(studyInstanceUid);
         return (
           <React.Fragment key={studyInstanceUid}>
-            <StudyItem
+            {/* <StudyItem
               date={date}
               description={description}
               numInstances={numInstances}
@@ -52,7 +52,7 @@ const StudyBrowser = ({
                 onClickStudy(studyInstanceUid);
               }}
               data-cy="thumbnail-list"
-            />
+            /> */}
             {isExpanded && displaySets && (
               <ThumbnailList
                 thumbnails={displaySets}
@@ -70,11 +70,11 @@ const StudyBrowser = ({
 
   return (
     <React.Fragment>
-      <div
+      {/* <div
         className="w-100 border-secondary-light bg-primary-dark flex h-16 flex-row items-center justify-center border-b p-4"
         data-cy={'studyBrowser-panel'}
       >
-        {/* TODO Revisit design of ButtonGroup later - for now use LegacyButton for its children.*/}
+
         <ButtonGroup
           variant="outlined"
           color="secondary"
@@ -109,7 +109,7 @@ const StudyBrowser = ({
             );
           })}
         </ButtonGroup>
-      </div>
+      </div> */}
       <div className="ohif-scrollbar invisible-scrollbar flex flex-1 flex-col overflow-auto">
         {getTabContent()}
       </div>
