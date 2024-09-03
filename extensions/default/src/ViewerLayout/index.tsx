@@ -24,7 +24,8 @@ function ViewerLayout({
 
   const { hangingProtocolService } = servicesManager.services;
   const [showLoadingIndicator, setShowLoadingIndicator] = useState(appConfig.showLoadingIndicator);
-
+  const [isOuterPanelClicked, setIsOuterPanelClicked] = useState(false);
+  const [showStudyBrowserModal, setShowStudyModalBrowser] = useState(false);
   /**
    * Set body classes (tailwindcss) that don't allow vertical
    * or horizontal overflow (no scrolling). Also guarantee window
@@ -102,6 +103,7 @@ function ViewerLayout({
   const leftPanelComponents = leftPanels.map(getPanelData);
   const rightPanelComponents = rightPanels.map(getPanelData);
   const viewportComponents = viewports.map(getViewportComponentData);
+  const ActiveComponent = leftPanelComponents[0].content;
 
   return (
     <div>
@@ -117,23 +119,44 @@ function ViewerLayout({
         <React.Fragment>
           {showLoadingIndicator && <LoadingIndicatorProgress className="h-full w-full bg-black" />}
           {/* LEFT SIDEPANELS */}
-          {leftPanelComponents.length ? (
+          {/* {leftPanelComponents.length ? (
             <ErrorBoundary context="Left Panel">
               <SidePanel
                 side="left"
                 activeTabIndex={rightPanelDefaultClosed ? null : 0}
                 tabs={leftPanelComponents}
                 servicesManager={servicesManager}
+                isOuterPanelClicked={isOuterPanelClicked}
               />
             </ErrorBoundary>
-          ) : null}
+          ) : null} */}
           {/* TOOLBAR + GRID */}
           <div
+            onClick={() => {
+              console.log('asdfasfasdasds');
+              setIsOuterPanelClicked(true);
+            }}
             className="flex h-full flex-1 flex-col"
             style={{ marginLeft: 30, marginRight: 30 }}
           >
             <div className="relative flex h-full flex-1 items-center justify-center overflow-hidden bg-black">
               <ErrorBoundary context="Grid">
+                <div
+                  onClick={() => setShowStudyModalBrowser(true)}
+                  style={{
+                    position: 'absolute',
+                    width: '100px',
+                    height: '40px',
+                    color: 'white',
+                    top: '100px',
+                    right: '0px',
+                    zIndex: 1,
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Open
+                </div>
                 <ViewportGridComp
                   servicesManager={servicesManager}
                   viewportComponents={viewportComponents}
@@ -149,10 +172,60 @@ function ViewerLayout({
                 activeTabIndex={rightPanelDefaultClosed ? null : 0}
                 tabs={rightPanelComponents}
                 servicesManager={servicesManager}
+                isOuterPanelClicked={isOuterPanelClicked}
               />
             </ErrorBoundary>
           ) : null}
         </React.Fragment>
+      </div>
+      <div
+        // className="flex-static bg-primary-dark flex h-9 cursor-pointer px-[10px]"
+        style={{
+          position: 'absolute',
+          height: 'calc(100vh - 100px)',
+          bottom: 0,
+          width: '100%',
+          padding: 20,
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
+          left: 0,
+          backgroundColor: 'rgb(4 28 74)',
+          zIndex: 1,
+          // overflow: 'scroll',
+          display: showStudyBrowserModal ? 'block' : 'none',
+        }}
+      >
+        <div
+          style={{
+            color: '#041c4a',
+            display: 'flex',
+            marginBottom: 15,
+            width: 30,
+            height: 30,
+            borderRadius: 30,
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontWeight: 'bold',
+            alignSelf: 'flex-end',
+            backgroundColor: 'white',
+            marginLeft: '90%',
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            setShowStudyModalBrowser(false);
+          }}
+        >
+          X
+        </div>
+        <div
+          style={{
+            height: 'calc(100vh - 200px)',
+            overflow: 'scroll',
+            width: '100%',
+          }}
+        >
+          <ActiveComponent />
+        </div>
       </div>
     </div>
   );

@@ -15,6 +15,10 @@ const ThumbnailList = ({
 }) => {
   return (
     <div
+      style={{
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+      }}
       id="ohif-thumbnail-list"
       className="ohif-scrollbar study-min-height overflow-y-hidden bg-black py-3"
     >
