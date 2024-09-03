@@ -148,14 +148,14 @@ function ViewerLayout({
                     width: '100px',
                     height: '40px',
                     color: 'white',
-                    top: '100px',
-                    right: '0px',
+                    top: '80px',
+                    left: '10px',
                     zIndex: 1,
                     textDecoration: 'underline',
                     cursor: 'pointer',
                   }}
                 >
-                  Open
+                  Series List
                 </div>
                 <ViewportGridComp
                   servicesManager={servicesManager}
