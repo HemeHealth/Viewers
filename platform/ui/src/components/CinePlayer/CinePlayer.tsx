@@ -50,7 +50,7 @@ const CinePlayer: React.FC<CinePlayerProps> = ({
 
   return (
     <div
-      style={{ top: 50, height: 50 }}
+      style={{ top: 100, height: 50 }}
       className={classNames(
         className,
         'border-secondary-light/60 bg-primary-dark flex select-none items-center gap-2 rounded border px-2 py-2'
