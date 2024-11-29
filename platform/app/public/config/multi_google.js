@@ -845,7 +845,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'prod-store-eflhc',
+      sourceName: 'prod-store-eflhc-uk',
       configuration: {
         friendlyName: 'prod-store-eflhc',
         name: 'GCP',
@@ -868,7 +868,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'prod-store-egc9b',
+      sourceName: 'prod-store-egc9b-uk',
       configuration: {
         friendlyName: 'prod-store-egc9b',
         name: 'GCP',
@@ -891,7 +891,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'prod-store-esvgm',
+      sourceName: 'prod-store-esvgm-uk',
       configuration: {
         friendlyName: 'prod-store-esvgm',
         name: 'GCP',
@@ -914,7 +914,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'prod-store-gkmqw',
+      sourceName: 'prod-store-gkmqw-uk',
       configuration: {
         friendlyName: 'prod-store-gkmqw',
         name: 'GCP',
@@ -937,7 +937,7 @@ window.config = {
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
-      sourceName: 'prod-store-hbptx',
+      sourceName: 'prod-store-hbptx-uk',
       configuration: {
         friendlyName: 'prod-store-hbptx',
         name: 'GCP',
